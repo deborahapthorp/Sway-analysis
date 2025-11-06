@@ -63,7 +63,7 @@ ymin <- min(AP_EC_mm)
 xRange <- xmax-xmin
 yRange <- ymax-ymin
 
-rangeDiff <- yRange - xRange 
+rangeDiff <- yRange - xRange # let's not assume Y is largest 
 
 #xRange_EO <- xmax_EO-xmin_EO
 #yRange_EO <- ymax_EO-ymin_EO
@@ -72,11 +72,11 @@ rangeDiff <- yRange - xRange
 
 # Adjust so axes are equal lengths 
 if (rangeDiff >0){
-  xmax <- xmax+rangeDiff/2
-  xmin <- xmin-rangeDiff/2
+  xmax <- xmax+abs(rangeDiff)/2
+  xmin <- xmin-abs(rangeDiff)/2
 } else{
-  ymax <- ymax+rangeDiff/2
-  ymin <- ymin-rangeDiff/2   
+  ymax <- ymax+abs(rangeDiff)/2
+  ymin <- ymin-abs(rangeDiff)/2   
 }
 
 #if (rangeDiff_EO >0){
